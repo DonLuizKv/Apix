@@ -68,7 +68,9 @@ Apix/
 │   ├── types/           # Tipado de datos
 │   ├── hooks/           # Lógica reutilizable
 │   ├── context/         # Manejo de estado global
-│   └── main.tsx         # Punto de entrada
+│   ├── index.css        # Estilos
+│   ├── main.tsx         
+│   └── app.tsx          # Aplicacion
 ├── src-tauri/           # Código del backend de Tauri (Rust)
 ├── public/              # Recursos estáticos
 └── package.json         # Configuración del proyecto
@@ -80,7 +82,6 @@ Este proyecto está bajo la licencia MIT.
 Consulta el archivo LICENSE
  para más información.
 
-## 🌐 Autor
+---
 
-Apix ha sido desarrollado con ❤️ por DonLuizKv
-Si te gusta el proyecto, ¡no olvides dejar una ⭐ en GitHub!
+Si te gusta el proyecto, ¡no olvides dejar una ⭐!

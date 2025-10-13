@@ -1,4 +1,4 @@
-# 🚀 Apix
+# 🚀 Apix (Beta)
 
 **Apix** es un **cliente HTTP rápido, ligero y menos feo que Postman**.  
 Haz peticiones, prueba APIs y maneja tus endpoints sin complicaciones ni distracciones visuales.  

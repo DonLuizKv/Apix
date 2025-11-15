@@ -13,7 +13,6 @@ Ideal para desarrolladores que buscan **velocidad, simplicidad y eficiencia**, s
 - 🧰 **Soporte para métodos HTTP comunes** — `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, etc.
 - 💾 **Gestión de endpoints** — Guarda y organiza tus peticiones favoritas.
 - 📦 **JSON y Headers** — Edición intuitiva y validación integrada.
-- 🌗 **Modo oscuro/claro** — Perfecto para trabajar cómodamente a cualquier hora.
 - 🔐 **Sin telemetría** — Tus datos, tus reglas.
 
 ---
@@ -44,8 +43,8 @@ Asegúrate de tener instalado:
 ### ▶️ Ejecución en modo desarrollo
 
 ```bash
-# Instalar dependencias
-npm install
+# Instalar dependencias (usando npm)
+npm install 
 
 # Iniciar el proyecto
 npm run tauri dev

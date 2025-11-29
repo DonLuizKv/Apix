@@ -1,46 +1,34 @@
-export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS"
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'HEAD' | 'OPTIONS'
 
-export type ThemeColor = "blue" | "cyan" | "purple" | "green" | "orange" | "pink"
-
-export interface HttpRequest {
-  baseUrl: string
-  endpoint: string
-  method: HttpMethod
-  headers: Record<string, string>
-  queryParams: Record<string, string>
-  body: string
-}
-
-export interface HttpRequestHistory {
+export interface Request {
   id: string
-  baseUrl: string
-  endpoint: string
+  name: string
   method: HttpMethod
-  timestamp: number
-  status?: number
+  endpoint: string
+  headers?: Record<string, string>
+  body?: any
+  createdAt: string
 }
 
-export interface WebSocketEvent {
-  type: "emit" | "on"
-  eventName: string
-  data: string
-  timestamp: number
+export interface Collection {
+  id: string
+  name: string
+  baseUrl: string
+  requests: Request[]
 }
 
-export interface AppSettings {
-  themeColor: ThemeColor
-}
-
-export interface HttpResponse {
+export interface ResponseData {
   status: number
   statusText: string
-  headers: Record<string, string>
-  data: any
   time: number
+  headers: Record<string, string>
+  body: any
 }
 
-export interface WebSocketConnection {
-  url: string
-  connected: boolean
-  events: WebSocketEvent[]
+export interface Settings {
+  theme: 'dark' | 'light'
+  timeout: number
+  enableLogs: boolean
+  enableProxy: boolean
+  globalHeaders: Record<string, string>
 }

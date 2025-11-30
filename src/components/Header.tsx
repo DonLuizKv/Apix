@@ -1,13 +1,13 @@
 
 import { useState } from 'react'
-import { Maximize2, Minimize2, Minus, Settings, X } from 'lucide-react'
+import { Maximize2, Minimize2, Minus, Settings2, X } from 'lucide-react'
 import { SettingsModal } from './Settings'
 import { getCurrentWindow } from '@tauri-apps/api/window'
 
 export function Header() {
-  const [isSettingsOpen, setIsSettingsOpen] = useState(true);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const window = getCurrentWindow();
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(true);
 
   const handleMinimize = () => {
     window.minimize()
@@ -41,9 +41,9 @@ export function Header() {
         <button
           type='button'
           onClick={() => setIsSettingsOpen(true)}
-          className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-primary shadow-sm transition-all duration-200 ease-out hover:scale-110 hover:bg-primary/80 active:scale-95"
+          className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-primary shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95"
         >
-          <Settings size={10} strokeWidth={3} className="text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+          <Settings2 size={10} strokeWidth={3} className="text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
         </button>
 
         <hr className="h-5 border border-border" />
@@ -52,7 +52,7 @@ export function Header() {
           <button
             type='button'
             onClick={handleMinimize}
-            className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-blue-500 shadow-sm transition-all duration-200 ease-out hover:scale-110 hover:bg-blue-600 active:scale-95"
+            className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-neutral shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95"
           >
             <Minus size={10} strokeWidth={3} className="text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
           </button>
@@ -60,7 +60,7 @@ export function Header() {
           <button
             type='button'
             onClick={handleMaximize}
-            className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-green-500 shadow-sm transition-all duration-200 ease-out hover:scale-110 hover:bg-green-600 active:scale-95"
+            className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-good shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95"
           >
             {
               isMinimized ? (
@@ -71,14 +71,9 @@ export function Header() {
             }
           </button>
 
-          <button
-            type='button'
-            onClick={handleClose}
-            className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-red-500 shadow-sm transition-all duration-200 ease-out hover:scale-110 hover:bg-red-600 active:scale-95"
-          >
+          <button type='button' onClick={handleClose} className="group relative flex h-4 w-4 items-center justify-center rounded-full bg-error shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">
             <X size={10} strokeWidth={3} className="text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
           </button>
-
         </nav>
       </div>
 

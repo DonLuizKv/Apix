@@ -77,7 +77,7 @@ export const SelectItem = ({ value, children, className = "", ...props }: React.
                 onValueChange(value)
                 setOpen(false)
             }}
-            className={`relative flex w-full select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 cursor-pointer ${className}`}
+            className={`relative flex w-full select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm font-semibold outline-none hover:bg-border data-[disabled]:pointer-events-none data-[disabled]:opacity-50 cursor-pointer ${className}`}
             {...props}
         >
             {children}

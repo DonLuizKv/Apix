@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Header } from '../components/header'
+import { useAlert } from '../contexts/AlertContext'
+import type { Collection, Request, HttpMethod, ResponseData } from '../types'
+import { Header } from '../components/Header'
 import { Sidebar } from '../components/sidebar'
 import { RequestPanel } from '../components/request-panel'
 import { ResponsePanel } from '../components/response-panel'
 import { SaveRequestModal } from '../components/save-request-modal'
 import { AlertContainer } from '../components/AlertContainer'
-import { useAlert } from '../contexts/AlertContext'
-import type { Collection, Request, HttpMethod, ResponseData } from '../types'
 
 export default function App() {
   const { showAlert } = useAlert()
@@ -184,7 +184,7 @@ export default function App() {
           onDeleteCollection={handleDeleteCollection}
         />
 
-        <main className="flex max-md:flex-col flex-1 overflow-hidden">
+        <main className="flex max-[700px]:flex-col flex-1 overflow-hidden">
           <RequestPanel
             method={method}
             baseUrl={baseUrl}

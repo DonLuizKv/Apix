@@ -48,23 +48,23 @@ export function RequestPanel({
   const httpRequest = [
     {
       method: "GET",
-      color: "text-primary"
+      color: "text-[#6F92D2]"
     },
     {
       method: "POST",
-      color: "text-secondary"
+      color: "text-[#51D66B]"
     },
     {
       method: "PUT",
-      color: "text-success"
+      color: "text-[#E9B54E]"
     },
     {
       method: "DELETE",
-      color: "text-destructive"
+      color: "text-[#B33A3A]"
     },
     {
       method: "PATCH",
-      color: "text-warning"
+      color: "text-[#A46EDB]"
     },
     {
       method: "HEAD",
@@ -72,7 +72,7 @@ export function RequestPanel({
     },
     {
       method: "OPTIONS",
-      color: "text-secondary"
+      color: "text-[#ba3891]"
     }
   ];
 
@@ -111,7 +111,7 @@ export function RequestPanel({
           <div className="flex flex-wrap gap-3">
             <Select value={method} onValueChange={(v: string) => onMethodChange(v as HttpMethod)}>
               <SelectTrigger className="bg-secondary border-border">
-                <SelectValue className={httpRequest.find((item) => item.method === method)?.color} />
+                <SelectValue className={`${httpRequest.find((item) => item.method === method)?.color} font-semibold`} />
               </SelectTrigger>
               <SelectContent>
                 {httpRequest.map((item) => (
@@ -170,7 +170,7 @@ export function RequestPanel({
           </div>
           <div className="space-y-2">
             {headerEntries.map(([key, value], index) => (
-              <div key={index} className="flex flex-wrap gap-2">
+              <div key={index} className="flex flex-wrap max-sm:flex-nowrap gap-2">
                 <Input
                   placeholder="Key"
                   value={key}

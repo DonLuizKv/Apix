@@ -1,7 +1,7 @@
 # 🚀 Apix (Beta)
 
 **Apix** es un **cliente HTTP rápido, ligero y menos feo que Postman**.  
-Haz peticiones, prueba APIs y maneja tus endpoints sin complicaciones ni distracciones visuales.  
+Haz peticiones, prueba APIs sin complicaciones ni distracciones visuales.  
 Ideal para desarrolladores que buscan **velocidad, simplicidad y eficiencia**, sin sacrificar funcionalidad.
 
 ---
@@ -11,7 +11,6 @@ Ideal para desarrolladores que buscan **velocidad, simplicidad y eficiencia**, s
 - ⚡ **Rápido y liviano** — Construido con **Tauri + Vite** para ofrecer rendimiento nativo.
 - 🧠 **Diseño minimalista** — Interfaz clara, sin el exceso visual de herramientas pesadas.
 - 🧰 **Soporte para métodos HTTP comunes** — `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, etc.
-- 💾 **Gestión de endpoints** — Guarda y organiza tus peticiones favoritas.
 - 📦 **JSON y Headers** — Edición intuitiva y validación integrada.
 - 🔐 **Sin telemetría** — Tus datos, tus reglas.
 
@@ -57,23 +56,6 @@ La aplicación se abrirá en una ventana nativa gracias a Tauri 🦀.
 npm run tauri build
 ```
 Esto generará un ejecutable nativo (ligero y rápido) listo para distribución.
-
-## 🧭 Estructura del proyecto
-```bash
-Apix/
-├── src/
-│   ├── components/      # Componentes de interfaz
-│   ├── utils/           # Funciones utiles
-│   ├── types/           # Tipado de datos
-│   ├── hooks/           # Lógica reutilizable
-│   ├── context/         # Manejo de estado global
-│   ├── index.css        # Estilos
-│   ├── main.tsx         
-│   └── app.tsx          # Aplicacion
-├── src-tauri/           # Código del backend de Tauri (Rust)
-├── public/              # Recursos estáticos
-└── package.json         # Configuración del proyecto
-```
 
 ## 📜 Licencia
 

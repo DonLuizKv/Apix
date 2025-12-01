@@ -122,7 +122,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
           </div>
         </div> */}
 
-        <p className="text-center text-muted-foreground py-6">Work in progress...</p>
+        <p className="text-center text-muted-foreground py-6">Coming soon...</p>
 
         {/* <div className="flex justify-end gap-3 p-6 border-t border-border">
           <Button className="bg-primary hover:bg-primary/90">

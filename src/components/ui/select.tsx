@@ -26,7 +26,7 @@ export const SelectTrigger = ({ className = "", children, ...props }: React.Butt
         <button
             type="button"
             onClick={() => setOpen(!open)}
-            className={`flex gap-2 h-9 w-28.5 items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+            className={`flex gap-2 h-9 w-28.5 items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
             {...props}
         >
             {children}

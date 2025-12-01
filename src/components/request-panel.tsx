@@ -1,6 +1,6 @@
 
 
-import { Plus, Save, X } from 'lucide-react'
+import { EllipsisIcon, Plus, Save, SendHorizonal, X } from 'lucide-react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
@@ -48,31 +48,38 @@ export function RequestPanel({
   const httpRequest = [
     {
       method: "GET",
-      color: "text-[#6F92D2]"
+      color: "text-http-get",
+      border: "border-http-get"
     },
     {
       method: "POST",
-      color: "text-[#51D66B]"
+      color: "text-http-post",
+      border: "border-http-post"
     },
     {
       method: "PUT",
-      color: "text-[#E9B54E]"
+      color: "text-http-put",
+      border: "border-http-put"
     },
     {
       method: "DELETE",
-      color: "text-[#B33A3A]"
+      color: "text-http-delete",
+      border: "border-http-delete"
     },
     {
       method: "PATCH",
-      color: "text-[#A46EDB]"
+      color: "text-http-patch",
+      border: "border-http-patch"
     },
     {
       method: "HEAD",
-      color: "text-primary"
+      color: "text-http-head",
+      border: "border-http-head"
     },
     {
       method: "OPTIONS",
-      color: "text-[#ba3891]"
+      color: "text-http-options",
+      border: "border-http-options"
     }
   ];
 
@@ -110,7 +117,7 @@ export function RequestPanel({
         <div className="space-y-3">
           <div className="flex flex-wrap gap-3">
             <Select value={method} onValueChange={(v: string) => onMethodChange(v as HttpMethod)}>
-              <SelectTrigger className="bg-secondary border-border">
+              <SelectTrigger className={`bg-secondary ${httpRequest.find((item) => item.method === method)?.border}`}>
                 <SelectValue className={`${httpRequest.find((item) => item.method === method)?.color} font-semibold`} />
               </SelectTrigger>
               <SelectContent>
@@ -123,14 +130,14 @@ export function RequestPanel({
             </Select>
 
             <Input
-              placeholder="Base URL (ej: https://api.ejemplo.com)"
+              placeholder="https://api.example.com"
               value={baseUrl}
               onChange={(e) => onBaseUrlChange(e.target.value)}
               className="flex-1 bg-secondary border-border"
               onKeyDown={handleKeyDown}
             />
             <Input
-              placeholder="Endpoint (ej: /users)"
+              placeholder="/example"
               value={endpoint}
               onChange={(e) => onEndpointChange(e.target.value)}
               className="flex-1 bg-secondary border-border"
@@ -142,7 +149,7 @@ export function RequestPanel({
               disabled={isLoading}
               className=" font-semibold bg-primary hover:bg-primary/90 text-[#1e1e1e]"
             >
-              {isLoading ? 'Enviando...' : 'Enviar'}
+              {isLoading ? <EllipsisIcon stroke='white' size={20} /> : <SendHorizonal stroke='white' size={20} />}
             </Button>
             <Button
               onClick={onSave}
@@ -201,11 +208,10 @@ export function RequestPanel({
           <div className="space-y-3">
             <h3 className="text-sm font-medium text-foreground">Body (JSON)</h3>
             <Textarea
-              placeholder='{\n  "key": "value"\n}'
               value={body}
-              onChange={(e) => onBodyChange(e.target.value)}
-              className="min-h-[200px] bg-secondary border-border font-mono text-sm"
-              onKeyDown={handleKeyDown}
+              onChange={(value) => onBodyChange(value || '')}
+              className="h-[200px] resize-y bg-secondary border-border font-mono text-sm"
+              onSubmit={onSend}
             />
           </div>
         )}

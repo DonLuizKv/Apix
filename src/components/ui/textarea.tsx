@@ -1,19 +1,62 @@
-import * as React from "react"
+import Editor, { OnMount, BeforeMount } from "@monaco-editor/react"
 
-export interface TextareaProps
-    extends React.TextareaHTMLAttributes<HTMLTextAreaElement> { }
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-    ({ className = "", ...props }, ref) => {
-        return (
-            <textarea
-                className={`flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
-                ref={ref}
-                {...props}
-            />
-        )
+export interface TextareaProps {
+    value?: string
+    onChange?: (value: string | undefined) => void
+    className?: string
+    language?: string
+    onSubmit?: () => void
+    placeholder?: string // Kept for compatibility but might not be used
+}
+
+const Textarea = ({ value, onChange, className, language = "json", onSubmit }: TextareaProps) => {
+    const handleEditorWillMount: BeforeMount = (monaco) => {
+        monaco.editor.defineTheme('apix-dark', {
+            base: 'vs-dark',
+            inherit: true,
+            rules: [],
+            colors: {
+                'editor.background': '#080c0f',
+                "editor.lineHighlightBackground": "#1e1e1e",
+            }
+        });
     }
-)
-Textarea.displayName = "Textarea"
+
+    const handleEditorDidMount: OnMount = (editor, monaco) => {
+        if (onSubmit) {
+            editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+                onSubmit()
+            })
+        }
+    }
+
+    return (
+        <div className={`overflow-hidden rounded-md border border-input ${className}`}>
+            <Editor
+                height="100%"
+                defaultLanguage={language}
+                theme="apix-dark"
+                value={value}
+                onChange={onChange}
+                beforeMount={handleEditorWillMount}
+                onMount={handleEditorDidMount}
+                options={{
+                    minimap: { enabled: false },
+                    scrollBeyondLastLine: false,
+                    fontSize: 13,
+                    automaticLayout: true,
+                    padding: { top: 8, bottom: 8, },
+                    fontFamily: 'var(--font-mono)',
+                    renderLineHighlight: 'none',
+                    contextmenu: false,
+                    lineNumbersMinChars: 3,
+                    glyphMargin: false,
+                    lineDecorationsWidth: 0,
+                }}
+            />
+        </div>
+    )
+}
 
 export { Textarea }

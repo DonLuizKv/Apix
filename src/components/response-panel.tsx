@@ -12,7 +12,7 @@ export function ResponsePanel({ response }: ResponsePanelProps) {
     return (
       <div className="flex-1 flex items-center justify-center bg-card/50">
         <p className="text-muted-foreground">
-          Envía una petición para ver la respuesta
+          Send a request to see the response
         </p>
       </div>
     )
@@ -41,13 +41,13 @@ export function ResponsePanel({ response }: ResponsePanelProps) {
           {response.status} {response.statusText}
         </Badge>
         <span className="text-sm text-muted-foreground">
-          Tiempo: <span className="text-primary font-semibold">{response.time}ms</span>
+          Time: <span className="text-primary font-semibold">{response.time}ms</span>
         </span>
       </div>
 
       {/* Response Headers */}
       <div className="space-y-2">
-        <h3 className="text-sm font-semibold text-foreground">Headers de Respuesta</h3>
+        <h3 className="text-sm font-semibold text-foreground">Response Headers</h3>
         <div className="bg-secondary rounded-lg p-4 space-y-1">
           {Object.entries(response.headers).map(([key, value]) => (
             <div key={key} className="text-xs font-mono">
@@ -60,7 +60,7 @@ export function ResponsePanel({ response }: ResponsePanelProps) {
 
       {/* Response Body */}
       <div className="space-y-2">
-        <h3 className="text-sm font-semibold text-foreground">Body</h3>
+        <h3 className="text-sm font-semibold text-foreground">Response Body</h3>
         <pre className="bg-secondary rounded-lg p-4 overflow-x-auto">
           <code className="text-xs font-mono text-foreground leading-relaxed">
             {formatBody()}

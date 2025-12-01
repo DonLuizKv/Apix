@@ -1,16 +1,15 @@
-import Editor, { OnMount, BeforeMount } from "@monaco-editor/react"
-
+import Editor, { OnMount, BeforeMount } from '@monaco-editor/react';
 
 export interface TextareaProps {
-    value?: string
-    onChange?: (value: string | undefined) => void
-    className?: string
-    language?: string
-    onSubmit?: () => void
-    placeholder?: string // Kept for compatibility but might not be used
+    value?: string;
+    onChange?: (value: string | undefined) => void;
+    className?: string;
+    language?: string;
+    onSubmit?: () => void;
+    placeholder?: string; // Kept for compatibility but might not be used
 }
 
-const Textarea = ({ value, onChange, className, language = "json", onSubmit }: TextareaProps) => {
+const Textarea = ({ value, onChange, className, language = 'json', onSubmit }: TextareaProps) => {
     const handleEditorWillMount: BeforeMount = (monaco) => {
         monaco.editor.defineTheme('apix-dark', {
             base: 'vs-dark',
@@ -18,18 +17,18 @@ const Textarea = ({ value, onChange, className, language = "json", onSubmit }: T
             rules: [],
             colors: {
                 'editor.background': '#080c0f',
-                "editor.lineHighlightBackground": "#1e1e1e",
-            }
+                'editor.lineHighlightBackground': '#1e1e1e',
+            },
         });
-    }
+    };
 
     const handleEditorDidMount: OnMount = (editor, monaco) => {
         if (onSubmit) {
             editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
-                onSubmit()
-            })
+                onSubmit();
+            });
         }
-    }
+    };
 
     return (
         <div className={`overflow-hidden rounded-md border border-input ${className}`}>
@@ -46,7 +45,7 @@ const Textarea = ({ value, onChange, className, language = "json", onSubmit }: T
                     scrollBeyondLastLine: false,
                     fontSize: 13,
                     automaticLayout: true,
-                    padding: { top: 8, bottom: 8, },
+                    padding: { top: 8, bottom: 8 },
                     fontFamily: 'var(--font-mono)',
                     renderLineHighlight: 'none',
                     contextmenu: false,
@@ -56,7 +55,7 @@ const Textarea = ({ value, onChange, className, language = "json", onSubmit }: T
                 }}
             />
         </div>
-    )
-}
+    );
+};
 
-export { Textarea }
+export { Textarea };

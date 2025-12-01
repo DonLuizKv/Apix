@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use serde_json::Value;
 
-
 #[tauri::command]
 fn send_request(method: &str, url: &str, headers: HashMap<&str, &str>, body: Option<Value>) {
     println!("Hello, {}! You've been greeted from    Rust!", method);

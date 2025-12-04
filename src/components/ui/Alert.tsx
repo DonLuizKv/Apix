@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { IconX } from '@tabler/icons-react';
 import { useMemo } from 'react';
 
 type AlertType = 'success' | 'error' | 'warning' | 'info';
@@ -125,7 +125,7 @@ export default function Alert({ type, message, title, duration = 3000, onClose }
                         onClick={onClose}
                         className="p-0.5 hover:bg-black/10 dark:hover:bg-white/10 rounded-full transition-colors z-10"
                     >
-                        <X className="h-3.5 w-3.5" />
+                        <IconX className="h-3.5 w-3.5" />
                     </button>
                 )}
             </div>

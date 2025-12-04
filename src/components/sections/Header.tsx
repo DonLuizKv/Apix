@@ -1,29 +1,9 @@
-import { getCurrentWindow } from '@tauri-apps/api/window';
-import { APIX, IconMinus, IconX, IconMaximize, IconMinimize } from "../icons/Icons";
-import { useState } from 'react';
+import { IconMinus, IconX, IconTopologyStarRing2, IconPinFilled, IconPin, IconSettings2, IconArrowsDiagonal, IconArrowsDiagonalMinimize2 } from '@tabler/icons-react';
+import { useWindow } from '../../contexts/useWindow';
 
 export default function Header() {
-    const [maximized, setMaximized] = useState<boolean>(false);
-    const window = getCurrentWindow();
 
-    const handleMaximize = async () => {
-        const isMaximized = await window.isMaximized()
-        if (isMaximized) {
-            window.unmaximize()
-            setMaximized(false)
-        } else {
-            window.maximize()
-            setMaximized(true)
-        }
-    };
-
-    const handleMinimize = () => {
-        window.minimize();
-    };
-
-    const handleClose = () => {
-        window.close();
-    };
+    const { Minimize, Maximize, AlwaysOnTop, isMaximized, isAlwaysOnTop, Close } = useWindow();
 
     return (
         <header
@@ -32,46 +12,49 @@ export default function Header() {
         >
             <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center gap-1">
-                    <APIX size={26} stroke={1} color="white" fill={true} />
-                    <h1 className="font-bold text-white text-xl">APIX</h1>
+                    <IconTopologyStarRing2 size={26} stroke={1.5} color="white" />
+                    <h1 className="font-semibold text-white text-xl">APIX</h1>
                 </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <nav className="flex items-center gap-2">
 
-                <hr className="h-5 border border-border" />
-
-                <nav className="flex items-center gap-2 pr-2">
-                    <button
-                        type="button"
-                        onClick={handleMinimize}
-                        className="group flex items-center justify-center h-4 w-4 rounded-full bg-neutral shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95"
-                    >
-                        <IconMinus size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
-                    </button>
-
-                    <button
-                        type='button'
-                        onClick={handleMaximize}
-                        className="group flex items-center justify-center h-4 w-4 rounded-full bg-good shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95"
-                    >
+                <div className="flex items-center gap-2">
+                    <button type="button" onClick={AlwaysOnTop} className={`group relative flex items-center justify-center h-4 w-4 rounded-full bg-secondary shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95 ${isAlwaysOnTop ? 'scale-125' : 'scale-95'}`}>
                         {
-                            maximized ?
-                                <IconMinimize size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
-                            :
-                                <IconMaximize size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
+                            isAlwaysOnTop ?
+                                <IconPinFilled size={10} stroke={3} />
+                                :
+                                <IconPin size={10} stroke={3} className='opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out' />
                         }
                     </button>
 
-                    <button
-                        type="button"
-                        onClick={handleClose}
-                        className="group flex items-center justify-center h-4 w-4 rounded-full bg-error shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95"
-                    >
+                    <button type="button" onClick={() => { }} className="group relative flex items-center justify-center h-4 w-4 rounded-full bg-primary shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">
+                        <IconSettings2 size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
+                    </button>
+                </div>
+
+                <hr className="h-5 border border-border" />
+
+                <div className="flex items-center gap-2 pr-2">
+                    <button type="button" onClick={Minimize} className="group relative flex items-center justify-center h-4 w-4 rounded-full bg-neutral shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">
+                        <IconMinus size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
+                    </button>
+
+                    <button type='button' onClick={Maximize} className="group relative flex items-center justify-center h-4 w-4 rounded-full bg-good shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">
+                        {
+                            isMaximized ?
+                                <IconArrowsDiagonalMinimize2 size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
+                                :
+                                <IconArrowsDiagonal size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
+                        }
+                    </button>
+
+                    <button type="button" onClick={Close} className="group relative flex items-center justify-center h-4 w-4 rounded-full bg-error shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">
                         <IconX size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
                     </button>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
     );
 }

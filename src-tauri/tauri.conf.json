@@ -13,13 +13,8 @@
         "windows": [
             {
                 "title": "Apix (Beta)",
-                
-                "width": 800,
+                "width": 900,
                 "height": 700,
-                
-                "maxWidth": 900,
-                "maxHeight": 900,
-                
                 "minWidth": 400,
                 "minHeight": 700,
                 "resizable": true,

@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@monaco-editor/react": "^4.7.0",
+        "@tabler/icons-react": "^3.35.0",
         "@tailwindcss/vite": "^4.1.13",
         "@tauri-apps/api": "^2",
         "@tauri-apps/plugin-opener": "^2",

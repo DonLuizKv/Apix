@@ -1,8 +1,9 @@
 
 export default function Response() {
+
     return (
-        <section className="">
-            adasda
+        <section className="w-full h-full flex flex-col p-2">
+
         </section>
     );
 }

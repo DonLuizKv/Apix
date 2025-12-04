@@ -1,7 +1,7 @@
-import { AlertContainer } from '../components/AlertContainer';
 import Header from '../components/sections/Header';
 import Request from '../components/sections/Request';
 import Response from '../components/sections/Response';
+import Alert from '../components/ui/Alert';
 
 export default function App() {
     return (
@@ -11,7 +11,7 @@ export default function App() {
                 <Request />
                 <Response />
             </div>
-            <AlertContainer />
+            <Alert />
         </main>
     );
 }

@@ -7,7 +7,7 @@ export interface AlertData {
     type: AlertType;
     title?: string;
     message: string;
-    duration?: number;
+    duration: number;
 }
 
 interface AlertContextType {
@@ -26,7 +26,7 @@ export function AlertProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const showAlert = useCallback(
-        (type: AlertType, message: string, title?: string, duration = 3000) => {
+        (type: AlertType, message: string, title?: string, duration = 5000) => {
             const id = Math.random().toString(36).substring(2, 9);
             const newAlert: AlertData = { id, type, title, message, duration };
 

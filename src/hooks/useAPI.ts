@@ -13,7 +13,22 @@ export default function useAPI() {
         setResponse(null);
         setError(null);
 
-        showAlert('info', 'Request sent');
+        setTimeout(() => {
+            setIsLoading(false);
+            showAlert('success', 'Request successful');
+        }, 2000);
+
+        setTimeout(() => {
+            showAlert('error', 'Request failed');
+        }, 4000);
+
+        setTimeout(() => {
+            showAlert('warning', 'Request warning');
+        }, 6000);
+
+        setTimeout(() => {
+            showAlert('info', 'Request info');
+        }, 8000);
     }
 
     return {

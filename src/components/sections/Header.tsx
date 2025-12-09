@@ -1,9 +1,9 @@
-import { IconMinus, IconX, IconTopologyStarRing2, IconPinFilled, IconPin, IconSettings2, IconArrowsDiagonal, IconArrowsDiagonalMinimize2 } from '@tabler/icons-react';
+import { IconMinus, IconX, IconTopologyStarRing2, IconPinFilled, IconPin, IconSettings2 } from '@tabler/icons-react';
 import { useWindow } from '../../contexts/useWindow';
 
 export default function Header() {
 
-    const { Minimize, Maximize, AlwaysOnTop, isMaximized, isAlwaysOnTop, Close } = useWindow();
+    const { Minimize, AlwaysOnTop, isAlwaysOnTop, Close } = useWindow();
 
     return (
         <header
@@ -39,15 +39,6 @@ export default function Header() {
                 <div className="flex items-center gap-2 pr-2">
                     <button type="button" onClick={Minimize} className="group relative flex items-center justify-center h-4 w-4 rounded-full bg-neutral shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">
                         <IconMinus size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
-                    </button>
-
-                    <button type='button' onClick={Maximize} className="group relative flex items-center justify-center h-4 w-4 rounded-full bg-good shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">
-                        {
-                            isMaximized ?
-                                <IconArrowsDiagonalMinimize2 size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
-                                :
-                                <IconArrowsDiagonal size={10} stroke={3} className="opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out" />
-                        }
                     </button>
 
                     <button type="button" onClick={Close} className="group relative flex items-center justify-center h-4 w-4 rounded-full bg-error shadow-sm transition-all duration-200 ease-out hover:scale-125 active:scale-95">

@@ -42,7 +42,7 @@ const AlertItem = memo(({ alert, onClose }: { alert: AlertData; onClose: (id: st
     const styles = ALERT_STYLES[alert.type];
 
     return (
-        <div className="group relative inline-flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm slide-in-from-right pointer-events-auto transition-transform hover:scale-[1.03]">
+        <div className="group relative inline-flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm slide-in-from-left pointer-events-auto transition-transform hover:scale-[1.03]">
             <div className={`absolute inset-0 rounded-full border ${styles.border} opacity-30`} />
             <div
                 className={`absolute inset-0 rounded-full border ${styles.border}`}

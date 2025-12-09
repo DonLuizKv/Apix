@@ -6,10 +6,10 @@ import Alert from '../components/ui/Alert';
 
 export default function App() {
     return (
-        <main className="max-h-dvh max-w-dvw flex flex-col">
+        <main className="h-dvh w-full flex flex-col overflow-hidden">
             <Header />
 
-            <section className='h-full w-full flex'>
+            <section className='flex flex-1 min-h-0'>
                 <Collections />
 
                 <div className="flex flex-1">

@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <header
             data-tauri-drag-region
-            className="flex items-center justify-between border-b border-border px-1.5 py-1.5"
+            className="flex items-center justify-between border-b border-border px-1.5 py-1.5 "
         >
             <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center gap-1">

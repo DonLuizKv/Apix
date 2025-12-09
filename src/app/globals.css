@@ -14,13 +14,13 @@
     --warning: #c6971e;
     --error: #fd5555;
 
-    --http-get: #6ac2fd;
-    --http-post: #51d66b;
-    --http-put: #f1bd55;
+    --http-get: #51d66b;
+    --http-post: #6ac2fd;
+    --http-put: #ad6eeb;
     --http-delete: #d84848;
-    --http-patch: #ad6eeb;
+    --http-patch: #f1bd55;
     --http-head: #e75c3a;
-    --http-options: #d242b8;
+    --http-options: #d242a9;
 }
 
 @theme inline {
@@ -54,6 +54,7 @@
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--primary) var(--background);
+    border: 1px solid red
 }
 
 *::-webkit-scrollbar-track {

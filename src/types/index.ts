@@ -10,11 +10,12 @@ export interface Request {
     createdAt: string;
 }
 
-export interface Collection {
-    id: string;
+export type collection = {
     name: string;
-    baseUrl: string;
-    requests: Request[];
+    endpoints: {
+        name: string;
+        method: HttpMethod;
+    }[];
 }
 
 export interface ResponseData {

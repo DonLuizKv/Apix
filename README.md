@@ -11,21 +11,8 @@ Ideal para desarrolladores que buscan **velocidad, simplicidad y eficiencia**, s
 - ⚡ **Rápido y liviano** — Construido con **Tauri + Vite** para ofrecer rendimiento nativo.
 - 🧠 **Diseño minimalista** — Interfaz clara, sin el exceso visual de herramientas pesadas.
 - 🧰 **Soporte para métodos HTTP comunes** — `GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `OPTIONS`, etc.
-- 💾 **Gestión de endpoints** — Guarda y organiza tus peticiones favoritas.
 - 📦 **JSON y Headers** — Edición intuitiva y validación integrada.
 - 🔐 **Sin telemetría** — Tus datos, tus reglas.
-
----
-
-## 🛠️ Tecnologías utilizadas
-
-| Tecnología | Propósito |
-|-------------|-----------|
-| [**Tauri**](https://tauri.app/) | Empaquetado nativo y comunicación con el sistema operativo |
-| [**Vite**](https://vitejs.dev/) | Entorno de desarrollo ultrarrápido |
-| [**React**](https://react.dev/) | UI modular y reactiva |
-| [**TypeScript**](https://www.typescriptlang.org/) | Tipado fuerte y mantenibilidad |
-| [**TailwindCSS**](https://tailwindcss.com/) | Estilos modernos y personalizables |
 
 ---
 
@@ -36,14 +23,14 @@ Asegúrate de tener instalado:
 
 - [Node.js](https://nodejs.org/) (v18 o superior)
 - [Rust](https://www.rust-lang.org/tools/install) (para compilar Tauri)
-- npm o pnpm
+- [npm](https://www.npmjs.com/get-npm) o [pnpm](https://pnpm.io/installation) (para instalar dependencias)
 
 ---
 
 ### ▶️ Ejecución en modo desarrollo
 
 ```bash
-# Instalar dependencias (usando npm)
+# Instalar dependencias (usando npm como ejemplo)
 npm install 
 
 # Iniciar el proyecto
@@ -58,28 +45,10 @@ npm run tauri build
 ```
 Esto generará un ejecutable nativo (ligero y rápido) listo para distribución.
 
-## 🧭 Estructura del proyecto
-```bash
-Apix/
-├── src/
-│   ├── components/      # Componentes de interfaz
-│   ├── utils/           # Funciones utiles
-│   ├── types/           # Tipado de datos
-│   ├── hooks/           # Lógica reutilizable
-│   ├── context/         # Manejo de estado global
-│   ├── index.css        # Estilos
-│   ├── main.tsx         
-│   └── app.tsx          # Aplicacion
-├── src-tauri/           # Código del backend de Tauri (Rust)
-├── public/              # Recursos estáticos
-└── package.json         # Configuración del proyecto
-```
-
 ## 📜 Licencia
 
 Este proyecto está bajo la licencia MIT.
-Consulta el archivo LICENSE
- para más información.
+Consulta el archivo LICENSE para más información.
 
 ---
 

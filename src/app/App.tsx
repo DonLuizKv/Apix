@@ -10,9 +10,9 @@ export default function App() {
             <Header />
 
             <section className='flex flex-1 min-h-0'>
-                <Collections />
+                {/* <Collections /> */}
 
-                <div className="flex flex-1">
+                <div className="flex flex-1 max-sm:flex-col">
                     <Request />
                     <Response />
                 </div>

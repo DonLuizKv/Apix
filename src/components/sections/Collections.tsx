@@ -1,4 +1,4 @@
-import CollectionItem from "../collections/CollectionItem";
+import CollectionItem from "../ui/CollectionItem";
 import { collection } from "../../types";
 
 export default function Collections() {
@@ -77,7 +77,7 @@ export default function Collections() {
             {
                 collections.length === 0 ? (
                     <div className="flex items-center justify-center h-full">
-                        <p className="text-center text-[#737373]">No collections found</p>
+                        <p className="text-center text-gray">No collections found</p>
                     </div>
                 ) : (
                     collections.map((collection, i) => (

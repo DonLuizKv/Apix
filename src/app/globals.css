@@ -6,6 +6,7 @@
     --card: #2f2e2e;
     --border: #2d2d2d;
     --input: #5c5c5c;
+    --gray: #737373;
 
     --primary: #e48639;
     --secondary: #ba56f8;
@@ -30,6 +31,7 @@
     --color-card: var(--card);
     --color-border: var(--border);
     --color-input: var(--input);
+    --color-gray: var(--gray);
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
     --color-secondary: var(--secondary);

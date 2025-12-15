@@ -15,9 +15,15 @@
                 "title": "Apix (Beta)",
                 "width": 900,
                 "height": 700,
+
                 "minWidth": 400,
                 "minHeight": 700,
+
+                "maxWidth": 900,
+                "maxHeight": 700,
+
                 "resizable": true,
+
                 "decorations": false,
                 "center": true
             }

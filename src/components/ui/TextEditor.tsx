@@ -1,22 +1,23 @@
 import Editor, { OnMount, BeforeMount } from '@monaco-editor/react';
 
 export interface TextareaProps {
-    value?: string;
+    defaultValue?: string;
     onChange?: (value: string | undefined) => void;
     className?: string;
     language?: string;
     onSubmit?: () => void;
     placeholder?: string; // Kept for compatibility but might not be used
+    readOnly?: boolean;
 }
 
-const Textarea = ({ value, onChange, className, language = 'json', onSubmit }: TextareaProps) => {
+const TextEditor = ({ defaultValue, onChange, className, language = 'json', onSubmit, readOnly }: TextareaProps) => {
     const handleEditorWillMount: BeforeMount = (monaco) => {
         monaco.editor.defineTheme('apix-dark', {
             base: 'vs-dark',
             inherit: true,
             rules: [],
             colors: {
-                'editor.background': '#080c0f',
+                'editor.background': '#2f2e2e',
                 'editor.lineHighlightBackground': '#1e1e1e',
             },
         });
@@ -36,11 +37,13 @@ const Textarea = ({ value, onChange, className, language = 'json', onSubmit }: T
                 height="100%"
                 defaultLanguage={language}
                 theme="apix-dark"
-                value={value}
+                defaultValue={defaultValue}
                 onChange={onChange}
                 beforeMount={handleEditorWillMount}
                 onMount={handleEditorDidMount}
                 options={{
+                    formatOnPaste: true,
+                    formatOnType: true,
                     minimap: { enabled: false },
                     scrollBeyondLastLine: false,
                     fontSize: 13,
@@ -52,10 +55,11 @@ const Textarea = ({ value, onChange, className, language = 'json', onSubmit }: T
                     lineNumbersMinChars: 3,
                     glyphMargin: false,
                     lineDecorationsWidth: 0,
+                    readOnly: readOnly,
                 }}
             />
         </div>
     );
 };
 
-export { Textarea };
+export { TextEditor };

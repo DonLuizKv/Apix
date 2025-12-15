@@ -15,13 +15,15 @@
         "core:window:allow-set-title",
         "core:window:allow-start-dragging",
         "core:window:allow-close",
-        "core:window:allow-unmaximize",
-        "core:window:allow-maximize",
         "core:window:allow-minimize",
         "core:window:allow-set-position",
         "core:window:allow-set-size",
         "core:window:allow-set-always-on-top",
         "core:window:allow-create",
+
+        "core:window:deny-maximize",
+        "core:window:deny-is-resizable",
+        "core:window:deny-is-fullscreen",
         "opener:default"
     ]
 }

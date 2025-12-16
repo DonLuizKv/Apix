@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 
 interface Props {
-    request: () => Promise<void>;
+    request: (method: string, url: string, headers?: Record<string, string>, body?: string) => Promise<void>;
     data: any;
     loading: boolean;
     error: string | null;
@@ -24,12 +24,24 @@ export default function APIProvider({ children }: { children: React.ReactNode })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
-    const request = async () => {
+    const request = async (method: string, url: string, headers?: Record<string, string>, body?: string) => {
         setLoading(true)
         setError(null)
 
         try {
-            const response = await invoke<any>("get_api");
+            // Transform headers object to array of tuples for Rust backend
+            const headersList = headers ? Object.entries(headers) : null;
+
+            const response = await invoke<any>("request", {
+                request: {
+                    method,
+                    url,
+                    headers: headersList,
+                    body
+                }
+            });
+
+            console.log(response)
 
             setData(response)
         } catch (err: any) {

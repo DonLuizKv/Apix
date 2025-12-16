@@ -1,24 +1,25 @@
 import { IconCopy, IconJson, IconTrashFilled } from "@tabler/icons-react";
 import { useAlert } from "../../contexts/AlertContext";
+import { useAPIContext } from "../../contexts/ApiContext";
 // import { useAPIContext } from "../../contexts/ApiContext";
 
 export default function Response() {
 
-    // const { data } = useAPIContext();
+    const { data } = useAPIContext();
     const { showAlert } = useAlert();
 
-    const data = {
-        headers: [
-            { name: 'Content-Type', value: 'application/json' },
-            { name: 'Content-Type', value: 'application/json' },
-            { name: 'Content-Type', value: 'application/json' },
-            { name: 'Content-Type', value: 'application/json' },
-        ],
-        body: "",
-        status: "403 Forbidden",
-        time: "100ms",
-        size: "100KB",
-    };
+    // const data = {
+    //     headers: [
+    //         { name: 'Content-Type', value: 'application/json' },
+    //         { name: 'Content-Type', value: 'application/json' },
+    //         { name: 'Content-Type', value: 'application/json' },
+    //         { name: 'Content-Type', value: 'application/json' },
+    //     ],
+    //     body: "",
+    //     status: "403 Forbidden",
+    //     time: "100ms",
+    //     size: "100KB",
+    // };
 
     const copyHeaders = () => {
         navigator.clipboard.writeText(JSON.stringify(data.headers));
@@ -86,8 +87,8 @@ export default function Response() {
                 <div className="min-h-[200px] max-h-[300px] overflow-auto flex flex-col gap-2 p-3 rounded-lg bg-card">
                     {
                         data.headers ? (
-                            data.headers.map((header, index) => (
-                                <span key={index} className="flex items-center gap-2">
+                            data.headers.map((i: number, header: any) => (
+                                <span key={i} className="flex items-center gap-2">
                                     <p className="text-sm font-light text-primary ">{header.name}:</p>
                                     <p className="text-sm font-light ">{header.value}</p>
                                 </span>
